@@ -12,6 +12,7 @@ public class LevelMaker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        levelNumber = 15;
         holder = new GameObject("@SpawnerHolder");
         spawners = new Queue<BulletSpawner>();
         for (int i = 0; i < 128; i++)
@@ -21,6 +22,16 @@ public class LevelMaker : MonoBehaviour
             spawner.pool = FindObjectOfType<BulletPool>();
             spawner.transform.SetParent(holder.transform);
         }
+        StartCoroutine("SpawnLevels");
+    }
+
+    public IEnumerator SpawnLevels()
+    {
+        do
+        {
+            SpawnLevel();
+            yield return new WaitForSecondsRealtime(4.675f);
+        } while (true);
     }
 
     public void SpawnLevel()
@@ -35,6 +46,8 @@ public class LevelMaker : MonoBehaviour
             spawner.inUse = true;
             spawner.SpawnAngled();
         }
+
+
     }
 
     // Update is called once per frame

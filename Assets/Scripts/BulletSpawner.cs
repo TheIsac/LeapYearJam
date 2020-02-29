@@ -30,6 +30,7 @@ public class BulletSpawner : MonoBehaviour
             angle = angle + (UnityEngine.Random.insideUnitCircle.normalized * 0.4f);
             angle = angle.normalized;
 
+           
             b.Activate(this.transform.position, angle, data.delay);
         }
 
