@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	public GameManager gameManager;
 
 	private PlayerMovement playerMovement;
+	private Animator anim;
 
 	private void Awake()
 	{
@@ -16,6 +17,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 			gameManager = FindObjectOfType<GameManager>();
 
 		playerMovement = GetComponent<PlayerMovement>();
+		anim = GetComponent<Animator>();
 	}
 
 	public void TakeDamage(int damage, Vector2 direction)
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 		{
 			gameManager.GameOver();
 			playerMovement.enabled = false;
+			anim.SetBool("Dead", true);
 		}
 	}
 }

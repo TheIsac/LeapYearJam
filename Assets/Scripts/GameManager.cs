@@ -14,8 +14,14 @@ public class GameManager : MonoBehaviour
     private bool gameIsOver;
     private float score;
     private int bulletCount;
+	private AudioSource audioSource;
 
-    void Start()
+	private void Awake()
+	{
+		audioSource = GetComponent<AudioSource>();
+	}
+
+	void Start()
     {
         TimeManager.Initialize();
         StartCoroutine(ScoreTick());
@@ -39,7 +45,8 @@ public class GameManager : MonoBehaviour
     public void AddToBulletCount()
     {
         bulletCount++;
-    }
+		audioSource.Play();
+	}
 
     public void GameOver()
     {
