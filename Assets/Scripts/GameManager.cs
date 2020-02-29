@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public GameObject loseText;
     public TextMeshProUGUI levelText;
     public LevelMaker levelMaker;
+	public AudioClip cheer, lose;
 
     private bool gameIsOver;
     private float score;
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         HandleInput();
-        levelText.text = "Score: " + score.ToString();
+        levelText.text = "Score: " + ((int)(score*10)).ToString();
     }
 
     private void HandleInput()
@@ -47,14 +48,15 @@ public class GameManager : MonoBehaviour
     public void AddToBulletCount()
     {
         bulletCount++;
-		audioSource.Play();
+		audioSource.PlayOneShot(cheer);
 	}
 
     public void GameOver()
     {
         loseText.SetActive(true);
         gameIsOver = true;
-		if(scoreRoutine != null)
+		audioSource.PlayOneShot(lose);
+		if (scoreRoutine != null)
 			StopCoroutine(scoreRoutine);
 	}
 
