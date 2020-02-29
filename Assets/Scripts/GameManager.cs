@@ -68,4 +68,9 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSecondsRealtime(1);
         } while (true);
     }
+
+	public void ReturnToMenu()
+	{
+		SceneManager.LoadScene(0);
+	}
 }

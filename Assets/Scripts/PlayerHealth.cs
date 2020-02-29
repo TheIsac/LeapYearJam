@@ -34,6 +34,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 			gameManager.GameOver();
 			playerMovement.enabled = false;
 			anim.SetBool("Dead", true);
+			enabled = false;
 		}
 	}
 }
