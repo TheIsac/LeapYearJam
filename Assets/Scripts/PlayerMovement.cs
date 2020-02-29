@@ -37,10 +37,4 @@ public class PlayerMovement : MonoBehaviour
 		direction.Normalize();
 		transform.position += direction * Time.deltaTime * speed;
 	}
-
-	private void TriggerDeath()
-	{
-		
-	}
-
 }
