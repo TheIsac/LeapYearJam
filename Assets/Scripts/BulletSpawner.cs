@@ -27,23 +27,33 @@ public class BulletSpawner : MonoBehaviour
         }
     }
 
-    public void Spawn(Vector2 position, Vector2 direction, float delay = 0f)
+    Vector2 VectorFromAngle(float theta)
     {
-        Bullet b = pool.ReQueue();
-        b.Refresh();
-        b.Activate(position, direction, delay);
+        return new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
     }
 
-    public void Spawn(Vector2 position, Vector2 direction, float delay = 0f, float offsetFromCenter = 0f)
+    public void Spawn(Vector2 position, Vector2 direction, int amount = 1, float delay = 0f, float offsetFromCenter = 0f)
     {
+        for (int i = 0; i < amount; i++)
+        {
+            Bullet b = pool.ReQueue();
+            b.Refresh();
 
+
+            float offsetAngle = ((Mathf.PI * 2) / amount);
+            offsetAngle = offsetAngle * i;
+            Vector2 pos = position + (VectorFromAngle(offsetAngle).normalized * offsetFromCenter);
+            b.Activate(pos, direction, delay);
+        }
     }
 
     public void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Spawn(this.transform.position, UnityEngine.Random.insideUnitCircle.normalized, UnityEngine.Random.Range(0, 0.5f));
+            Spawn(transform.position, Vector2.right, 20, 2, 4f);
         }
     }
 
