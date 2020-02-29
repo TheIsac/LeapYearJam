@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
 		HandleMovement();
 		HandleSlowdown();
+		HandleOutOfBounds();
     }
 
 	private void HandleMovement()
@@ -62,5 +63,24 @@ public class PlayerMovement : MonoBehaviour
 		{
 			TimeManager.instance.SetTimeScaleTarget(1f);
 		}
+	}
+
+	private void HandleOutOfBounds()
+	{
+		Vector3 playerPos = transform.position;
+
+		if (playerPos.x < -8.5f)
+			playerPos.x = -8.5f;
+
+		if (playerPos.x > 8.5f)
+			playerPos.x = 8.5f;
+
+		if (playerPos.y < -4.5f)
+			playerPos.y = -4.5f;
+
+		if (playerPos.y > 4.5f)
+			playerPos.y = 4.5f;
+
+		transform.position = playerPos;
 	}
 }
