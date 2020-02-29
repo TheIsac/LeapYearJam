@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleSlowdown()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
         {
             TimeManager.instance.SetTimeScaleTarget(0.1f);
         }
