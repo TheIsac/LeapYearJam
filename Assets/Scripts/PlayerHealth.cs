@@ -8,10 +8,14 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	public int life;
 	public GameManager gameManager;
 
+	private PlayerMovement playerMovement;
+
 	private void Awake()
 	{
 		if (gameManager == null)
 			gameManager = FindObjectOfType<GameManager>();
+
+		playerMovement = GetComponent<PlayerMovement>();
 	}
 
 	public void TakeDamage(int damage, Vector2 direction)
@@ -24,6 +28,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	{
 		life -= damage;
 		if (life <= 0)
+		{
 			gameManager.GameOver();
+			playerMovement.enabled = false;
+		}
 	}
 }

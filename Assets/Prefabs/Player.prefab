@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f0f190d7d71c4c44be9d176d099d05f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  life: 1
   gameManager: {fileID: 0}
 --- !u!50 &338159291608175505
 Rigidbody2D:
