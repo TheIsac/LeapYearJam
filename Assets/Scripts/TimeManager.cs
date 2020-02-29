@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+	public static TimeManager instance;
+
     private float targetTimeScale;
     private const float fixedDeltaMagnitude = 0.02f;
 
@@ -16,6 +18,9 @@ public class TimeManager : MonoBehaviour
 
     private void SetUp()
     {
+		if(instance == null)
+			instance = this;
+
         targetTimeScale = 1f;
     }
 

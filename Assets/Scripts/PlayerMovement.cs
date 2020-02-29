@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 		HandleMovement();
+		HandleSlowdown();
     }
 
 	private void HandleMovement()
@@ -36,5 +37,17 @@ public class PlayerMovement : MonoBehaviour
 
 		direction.Normalize();
 		transform.position += direction * Time.deltaTime * speed;
+	}
+
+	private void HandleSlowdown()
+	{
+		if (Input.GetKey(KeyCode.Space))
+		{
+			TimeManager.instance.SetTimeScaleTarget(0.1f);
+		}
+		else
+		{
+			TimeManager.instance.SetTimeScaleTarget(1f);
+		}
 	}
 }

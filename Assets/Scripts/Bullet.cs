@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D))]
+[RequireComponent(typeof(SpriteRenderer), typeof(Rigidbody2D), typeof(CircleCollider2D))]
 public class Bullet : MonoBehaviour
 {
     public float speed;
@@ -13,11 +13,13 @@ public class Bullet : MonoBehaviour
 
     protected SpriteRenderer rend;
     protected Rigidbody2D body;
+	protected CircleCollider2D col;
 
-    public virtual void Initialize()
+	public virtual void Initialize()
     {
         rend = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
+		col = GetComponent<CircleCollider2D>();
 
         HideMe();
     }
@@ -26,8 +28,8 @@ public class Bullet : MonoBehaviour
     {
         rend.color = Color.white;
         body.velocity = Vector2.zero;
-
-    }
+		col.isTrigger = true;
+	}
 
     public virtual void Activate(Vector2 pos, Vector2 direction, float delay)
     {
