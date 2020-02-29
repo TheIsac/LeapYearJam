@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class ScoreBullet : Bullet
 {
+
+    public TrailRenderer trail;
     public override void Activate(Vector2 pos, Vector2 direction, float delay)
     {
         base.Activate(pos, direction, delay);
+        trail.enabled = true;
     }
 
     public override void DeActivate()
     {
+        trail.enabled = false;
         base.DeActivate();
     }
 
