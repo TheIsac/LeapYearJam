@@ -37,6 +37,8 @@ public class LevelMaker : MonoBehaviour
     public void SpawnLevel()
     {
         levelNumber++;
+
+
         for (int i = 0; i < levelNumber; i++)
         {
             BulletSpawner spawner = spawners.ReQueue();
@@ -44,7 +46,15 @@ public class LevelMaker : MonoBehaviour
             spawner.transform.position += (Vector3)Random.insideUnitCircle.normalized * 8f;
             spawner.data = spawnerDataList.GetRandom();
             spawner.inUse = true;
-            spawner.SpawnAngled();
+            if (levelNumber % 3 == 0)
+            {
+                spawner.SpawnHoming();
+            }
+            else
+            {
+                spawner.SpawnAngled();
+            }
+
         }
 
 

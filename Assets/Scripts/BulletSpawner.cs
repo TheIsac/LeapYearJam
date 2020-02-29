@@ -19,6 +19,24 @@ public class BulletSpawner : MonoBehaviour
         return new Vector2(Mathf.Cos(theta), Mathf.Sin(theta));
     }
 
+    public void SpawnHoming()
+    {
+        for (int i = 0; i < data.amount; i++)
+        {
+            Bullet b = pool.GetBullet(data.type);
+            b.Refresh();
+
+            Vector2 angle = -((Vector2)this.transform.position - (Vector2)PlayerMovement.me.position).normalized;
+            //angle = angle + (UnityEngine.Random.insideUnitCircle.normalized * 0.4f);
+            //angle = angle.normalized;
+
+
+            b.Activate(this.transform.position, angle, data.delay);
+        }
+
+        inUse = false;
+    }
+
     public void SpawnAngled()
     {
         for (int i = 0; i < data.amount; i++)
@@ -30,7 +48,7 @@ public class BulletSpawner : MonoBehaviour
             angle = angle + (UnityEngine.Random.insideUnitCircle.normalized * 0.4f);
             angle = angle.normalized;
 
-           
+
             b.Activate(this.transform.position, angle, data.delay);
         }
 

@@ -5,82 +5,84 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-	public float speed;
+    public float speed;
+    public static Transform me;
 
-	private Animator anim;
+    private Animator anim;
 
-	private void Awake()
-	{
-		anim = GetComponent<Animator>();
-	}
-
-	void Update()
+    private void Awake()
     {
-		HandleMovement();
-		HandleSlowdown();
-		HandleOutOfBounds();
+        me = this.transform;
+        anim = GetComponent<Animator>();
     }
 
-	private void HandleMovement()
-	{
-		Vector3 direction = Vector3.zero;
+    void Update()
+    {
+        HandleMovement();
+        HandleSlowdown();
+        HandleOutOfBounds();
+    }
 
-		if (Input.GetAxis("Horizontal") > 0)
-		{
-			direction += Vector3.right;
-		}
-		if (Input.GetAxis("Horizontal") < 0)
-		{
-			direction += Vector3.left;
-		}
+    private void HandleMovement()
+    {
+        Vector3 direction = Vector3.zero;
 
-		if (Input.GetAxis("Vertical") > 0)
-		{
-			direction += Vector3.up;
-		}
-		if (Input.GetAxis("Vertical") < 0)
-		{
-			direction += Vector3.down;
-		}
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            direction += Vector3.right;
+        }
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            direction += Vector3.left;
+        }
 
-		direction.Normalize();
-		transform.position += direction * Time.deltaTime * speed;
+        if (Input.GetAxis("Vertical") > 0)
+        {
+            direction += Vector3.up;
+        }
+        if (Input.GetAxis("Vertical") < 0)
+        {
+            direction += Vector3.down;
+        }
 
-		if (direction.magnitude > 0)
-			anim.SetBool("Walking", true);
-		else
-			anim.SetBool("Walking", false);
+        direction.Normalize();
+        transform.position += direction * Time.deltaTime * speed;
 
-	}
+        if (direction.magnitude > 0)
+            anim.SetBool("Walking", true);
+        else
+            anim.SetBool("Walking", false);
 
-	private void HandleSlowdown()
-	{
-		if (Input.GetKey(KeyCode.Space))
-		{
-			TimeManager.instance.SetTimeScaleTarget(0.1f);
-		}
-		else
-		{
-			TimeManager.instance.SetTimeScaleTarget(1f);
-		}
-	}
+    }
 
-	private void HandleOutOfBounds()
-	{
-		Vector3 playerPos = transform.position;
+    private void HandleSlowdown()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            TimeManager.instance.SetTimeScaleTarget(0.1f);
+        }
+        else
+        {
+            TimeManager.instance.SetTimeScaleTarget(1f);
+        }
+    }
 
-		if (playerPos.x < -8.5f)
-			playerPos.x = -8.5f;
+    private void HandleOutOfBounds()
+    {
+        Vector3 playerPos = transform.position;
 
-		if (playerPos.x > 8.5f)
-			playerPos.x = 8.5f;
+        if (playerPos.x < -8.5f)
+            playerPos.x = -8.5f;
 
-		if (playerPos.y < -4.5f)
-			playerPos.y = -4.5f;
+        if (playerPos.x > 8.5f)
+            playerPos.x = 8.5f;
 
-		if (playerPos.y > 4.5f)
-			playerPos.y = 4.5f;
+        if (playerPos.y < -4.5f)
+            playerPos.y = -4.5f;
 
-		transform.position = playerPos;
-	}
+        if (playerPos.y > 4.5f)
+            playerPos.y = 4.5f;
+
+        transform.position = playerPos;
+    }
 }
