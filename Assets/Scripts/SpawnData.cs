@@ -7,6 +7,6 @@ public class SpawnData : ScriptableObject
 {
     public int amount;
     public float delay;
-    public enum BulletTypes { Default = 1, Large = 2, Great = 3 };
+    public enum BulletTypes { Default = 1, Large = 2, Great = 3, Score = 4 };
     public BulletTypes type;
 }
