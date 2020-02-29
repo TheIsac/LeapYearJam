@@ -10,6 +10,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
 	private PlayerMovement playerMovement;
 	private Animator anim;
+	private bool dead;
 
 	private void Awake()
 	{
@@ -29,12 +30,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	private void HandleDamage(int damage)
 	{
 		life -= damage;
-		if (life <= 0)
+		if (life <= 0 && !dead)
 		{
 			gameManager.GameOver();
 			playerMovement.enabled = false;
 			anim.SetBool("Dead", true);
-			enabled = false;
+			dead = true;
 		}
 	}
 }

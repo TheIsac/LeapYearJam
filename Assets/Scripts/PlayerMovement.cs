@@ -9,12 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public static Transform me;
 
     private Animator anim;
+	private SpriteRenderer sprRen;
 
     private void Awake()
     {
         me = this.transform;
         anim = GetComponent<Animator>();
-    }
+		sprRen = GetComponent<SpriteRenderer>();
+	}
 
     void Update()
     {
@@ -53,9 +55,13 @@ public class PlayerMovement : MonoBehaviour
         else
             anim.SetBool("Walking", false);
 
-    }
+		if (direction.x > 0)
+			sprRen.flipX = false;
+		if (direction.x < 0)
+			sprRen.flipX = true;
+	}
 
-    private void HandleSlowdown()
+	private void HandleSlowdown()
     {
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.LeftShift))
         {
