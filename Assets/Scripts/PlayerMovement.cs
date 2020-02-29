@@ -7,7 +7,14 @@ public class PlayerMovement : MonoBehaviour
 {
 	public float speed;
 
-    void Update()
+	private Animator anim;
+
+	private void Awake()
+	{
+		anim = GetComponent<Animator>();
+	}
+
+	void Update()
     {
 		HandleMovement();
 		HandleSlowdown();
@@ -37,6 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
 		direction.Normalize();
 		transform.position += direction * Time.deltaTime * speed;
+
+		if (direction.magnitude > 0)
+			anim.SetBool("Walking", true);
+		else
+			anim.SetBool("Walking", false);
+
 	}
 
 	private void HandleSlowdown()
