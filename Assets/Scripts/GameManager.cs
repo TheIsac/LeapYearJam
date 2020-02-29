@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     private int bulletCount;
 	private AudioSource audioSource;
 
+	private Coroutine scoreRoutine;
+
 	private void Awake()
 	{
 		audioSource = GetComponent<AudioSource>();
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
 	void Start()
     {
         TimeManager.Initialize();
-        StartCoroutine(ScoreTick());
+		scoreRoutine = StartCoroutine(ScoreTick());
     }
 
     private void Update()
@@ -52,7 +54,9 @@ public class GameManager : MonoBehaviour
     {
         loseText.SetActive(true);
         gameIsOver = true;
-    }
+		if(scoreRoutine != null)
+			StopCoroutine(scoreRoutine);
+	}
 
     private IEnumerator ScoreTick()
     {
