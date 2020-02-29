@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-
+	public GameObject loseText;
 
     void Start()
     {
@@ -18,6 +18,6 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-
-    }
+		loseText.SetActive(true);
+	}
 }
