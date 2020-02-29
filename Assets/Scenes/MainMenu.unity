@@ -295,7 +295,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423.7, y: -2}
+  m_AnchoredPosition: {x: -423.7, y: -15}
   m_SizeDelta: {x: 297.34, y: 373.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &119680367
@@ -677,7 +677,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: BULLET CHEESE
+  m_text: "BULLET \nCHEESE"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 67c0b8030628520439db443509376135, type: 2}
   m_sharedMaterial: {fileID: 32404323305425214, guid: 67c0b8030628520439db443509376135,
@@ -716,7 +716,7 @@ MonoBehaviour:
   m_textAlignment: 514
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -15
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -747,9 +747,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 448399559}
-    characterCount: 13
+    characterCount: 14
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 2
     wordCount: 2
     linkCount: 0
     lineCount: 2
@@ -1041,14 +1041,14 @@ RectTransform:
   m_GameObject: {fileID: 948184267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1735127855}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5, y: 51}
+  m_AnchoredPosition: {x: 72.5, y: -19.7}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &948184269
@@ -1142,7 +1142,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -423.7, y: -2}
+  m_AnchoredPosition: {x: -423.7, y: -14.99999}
   m_SizeDelta: {x: 297.34, y: 373.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1287828345
@@ -2020,7 +2020,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -271, y: -159}
-  m_SizeDelta: {x: 400, y: 150}
+  m_SizeDelta: {x: 410.9, y: 138.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2106261416
 MonoBehaviour:
