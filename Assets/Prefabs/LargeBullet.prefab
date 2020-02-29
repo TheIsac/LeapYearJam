@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2029522691897650860}
   - component: {fileID: 4685713299826906414}
   m_Layer: 0
-  m_Name: DefaultBullet
+  m_Name: LargeBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 2029522691897650861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772caac6215197249947f0a8c811d6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   damage: 1
 --- !u!58 &4685713299826906414
 CircleCollider2D:

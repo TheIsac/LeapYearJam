@@ -7,5 +7,6 @@ public class SpawnData : ScriptableObject
 {
     public int amount;
     public float delay;
-    public Bullet prefab;
+    public enum BulletTypes { Default = 1, Large = 2 };
+    public BulletTypes type;
 }
