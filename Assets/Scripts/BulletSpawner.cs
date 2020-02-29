@@ -31,7 +31,20 @@ public class BulletSpawner : MonoBehaviour
     {
         Bullet b = pool.ReQueue();
         b.Refresh();
-        b.Invoke("Initialize", delay);
+        b.Activate(position, direction, delay);
+    }
+
+    public void Spawn(Vector2 position, Vector2 direction, float delay = 0f, float offsetFromCenter = 0f)
+    {
+
+    }
+
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            Spawn(this.transform.position, UnityEngine.Random.insideUnitCircle.normalized, UnityEngine.Random.Range(0, 0.5f));
+        }
     }
 
 

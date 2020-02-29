@@ -4,10 +4,12 @@
 public class Bullet : MonoBehaviour
 {
     public float speed;
-    public Vector2 direction;
-    public int damage;
+    protected Vector2 direction;
+    [SerializeField] protected int damage;
 
-    [SerializeField] private bool canDealDamage;
+    private float delay;
+
+    private bool canDealDamage;
 
     protected SpriteRenderer rend;
     protected Rigidbody2D body;
@@ -17,22 +19,21 @@ public class Bullet : MonoBehaviour
         rend = GetComponent<SpriteRenderer>();
         body = GetComponent<Rigidbody2D>();
 
-        rend.sprite = (Sprite)AssetLoader.LoadAsset("Art/DefaultBullet");
-
         HideMe();
     }
 
     public virtual void Refresh()
     {
         rend.color = Color.white;
+        body.velocity = Vector2.zero;
         canDealDamage = true;
     }
 
-    public virtual void Activate(Vector2 pos, Vector2 direction)
+    public virtual void Activate(Vector2 pos, Vector2 direction, float delay)
     {
         this.transform.position = pos;
         this.direction = direction;
-        SetInMotion();
+        Invoke("SetInMotion", delay);
     }
 
     private void HideMe()
