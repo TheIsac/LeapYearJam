@@ -47,8 +47,11 @@ public class GameManager : MonoBehaviour
 
     public void AddToBulletCount()
     {
-        bulletCount++;
-		audioSource.PlayOneShot(cheer);
+		if (!gameIsOver)
+		{
+			bulletCount++;
+			audioSource.PlayOneShot(cheer);
+		}
 	}
 
     public void GameOver()
