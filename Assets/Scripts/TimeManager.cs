@@ -21,7 +21,7 @@ public class TimeManager : MonoBehaviour
 
     void Update()
     {
-        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.deltaTime);
+        Time.timeScale = Mathf.Lerp(Time.timeScale, targetTimeScale, Time.unscaledDeltaTime);
         Time.fixedDeltaTime = Time.timeScale * fixedDeltaMagnitude;
     }
 

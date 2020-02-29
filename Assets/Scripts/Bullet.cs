@@ -26,14 +26,21 @@ public class Bullet : MonoBehaviour
     {
         rend.color = Color.white;
         body.velocity = Vector2.zero;
-        canDealDamage = true;
+
     }
 
     public virtual void Activate(Vector2 pos, Vector2 direction, float delay)
     {
+        canDealDamage = true;
         this.transform.position = pos;
         this.direction = direction;
         Invoke("SetInMotion", delay);
+    }
+
+    public virtual void DeActivate()
+    {
+        HideMe();
+        canDealDamage = false;
     }
 
     private void HideMe()
